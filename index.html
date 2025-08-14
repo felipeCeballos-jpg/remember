@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Remember</title>
+    <link rel="stylesheet" href="https://use.typekit.net/ksu1zed.css" />
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="mobile.css" media="(max-width: 800px)" />
+    <link
+      rel="stylesheet"
+      href="tablet.css"
+      media="(min-width: 801px) and (max-width: 1300px)"
+    />
+  </head>
+  <body>
+    <section class="loader">
+      <img src="./assets/loading.GIF" alt="loading.." />
+    </section>
+    <main>
+      <section class="main-section remember-section">
+        <div class="language-container">
+          <img
+            id="language-selector"
+            class="language-selector changeable-img klubok"
+            alt="klubok"
+            src="assets/klubok_en.png"
+          />
+        </div>
+        <div class="title-section">
+          <img
+            alt="An image that say remember but if you're in russian language it says -------"
+            class="title-img changeable-img"
+            src="assets/remember-en.webp"
+          />
+          <p class="title-description changeable-txt">
+            Dedicated to my grandmother • 1933-2019
+          </p>
+        </div>
+      </section>
+      <section class="portrait-section remember-section">
+        <img
+          alt="Butterfly image"
+          class="butterfly-img"
+          src="assets/butterfly.webp"
+        />
+        <img
+          alt="Portrait of my grandmother and i"
+          class="portrait-img"
+          src="assets/photo.webp"
+        />
+      </section>
+      <section
+        id="memory-msg-container"
+        class="memory-msg-section remember-section"
+      >
+        <h2 class="changeable-txt">Leave a memory</h2>
+        <div class="msgs-container"></div>
+        <!-- <button class="load-more-msg-button">
+          <img
+            alt="Load more messages button"
+            class="load-more-msg-img changeable-img"
+            src="assets/read-next-button-en.webp"
+          />
+        </button> -->
+      </section>
+      <section id="form-msg-section" class="form-section remember-section">
+        <img
+          class="line-img"
+          alt="just line to divide the form and the messages"
+          src="assets/cut-line.webp"
+        />
+        <form class="form-container">
+          <label for="Name" class="changeable-txt">Name:</label>
+          <input
+            id="Name"
+            name="Name"
+            type="text"
+            class="text-input"
+            autocomplete="off"
+            required
+          />
+          <label for="Message" class="changeable-txt">Text:</label>
+          <textarea
+            id="Message"
+            name="Message"
+            rows="6"
+            class="text-input"
+            autocomplete="off"
+            required
+          >
+Hello...
+          </textarea>
+          <div class="form-submit-container">
+            <div class="stickers">
+              <input
+                type="hidden"
+                name="selectedSticker"
+                id="selectedsticker"
+                required
+              />
+              <div class="sticker-button" data-value="candy">
+                <img
+                  alt="candy sticker"
+                  class="sticker-candy sticker"
+                  src="assets/candy.webp"
+                />
+              </div>
+              <div class="sticker-button" data-value="flower">
+                <img
+                  alt="flower sticker"
+                  class="sticker-flower sticker"
+                  src="assets/flower.png"
+                />
+              </div>
+              <div class="sticker-button" data-value="bear">
+                <img
+                  alt="bear sticker"
+                  class="sticker-bear sticker"
+                  src="assets/bear.webp"
+                />
+              </div>
+            </div>
+            <button type="submit" class="form-submit-button">
+              <img
+                alt="Press to enviar the message"
+                class="submit-button-img changeable-img"
+                src="assets/print-button-en.webp"
+              />
+            </button>
+          </div>
+        </form>
+        <div class="stamp-container">
+          <img
+            alt="Coat of arms of the Soviet Union"
+            class="soviet-union-img"
+            src="assets/coat of arms of the soviet union.webp"
+          />
+          <div class="stamp-text">
+            <p class="changeable-txt stamp-copyright">© «REMEMBER»</p>
+            <p class="changeable-txt stamp-info">
+              Contact the grandson Sergey:
+            </p>
+            <a href="#" class="email-link">tkachinni@gmail.com</a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="section-navbook">
+      <div class="menu">
+        <div class="pages">
+          <img alt="" class="main changeable-footer-img" draggable="false" />
+          <img
+            alt=""
+            class="milestones changeable-footer-img"
+            draggable="false"
+          />
+          <img alt="" class="stories changeable-footer-img" draggable="false" />
+          <img alt="" class="gallery changeable-footer-img" draggable="false" />
+          <img
+            alt=""
+            class="my-granny changeable-footer-img"
+            draggable="false"
+          />
+          <img
+            alt=""
+            class="remember changeable-footer-img"
+            draggable="false"
+          />
+          <img alt="" class="map changeable-footer-img" draggable="false" />
+        </div>
+        <img src="./assets/navbook/navbook.webp" alt="" class="navbook" />
+      </div>
+    </footer>
+    <script type="module" src="./assets/js/index.js"></script>
+  </body>
+</html>

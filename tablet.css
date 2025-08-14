@@ -1,0 +1,129 @@
+@media only screen and (min-width: 801px) and (max-width: 1300px) {
+  .butterfly-img {
+    left: 2rem;
+  }
+}
+
+@media only screen and (max-width: 1080px) {
+  .remember-section {
+    width: 45.924rem;
+    padding: 0px;
+  }
+
+  .title-img {
+    width: 45.924rem;
+    height: 11.279rem;
+  }
+
+  .title-description {
+    right: -2rem;
+  }
+
+  .title-description:lang(ru) {
+    font-size: 1.1rem;
+    bottom: 0.19rem;
+  }
+
+  .title-description:lang(en) {
+    font-size: 1.45rem;
+    bottom: -1.9rem;
+  }
+
+  .portrait-section {
+    margin-bottom: 5.813rem;
+  }
+
+  .portrait-section:lang(en) {
+    margin-top: 4rem;
+  }
+
+  .portrait-section:lang(ru) {
+    margin-top: 3rem;
+  }
+
+  .butterfly-img {
+    width: 10.788rem;
+    height: 10.403rem;
+    top: -5rem;
+    left: -1rem;
+  }
+
+  .portrait-img {
+    width: 41.826rem;
+    height: 55.838rem;
+  }
+
+  #memory-msg-container {
+    width: 45.924rem;
+  }
+
+  h2 {
+    font-size: 7ch;
+    margin-left: 7rem;
+  }
+
+  /* .msgs-container {
+    padding: 0px 60px;
+  } */
+
+  .stickers-img-container {
+    width: 5.989rem;
+  }
+
+  .msg-subcontainer-right > .stickers-img-container {
+    margin-left: 2.8rem;
+  }
+
+  .msg-description {
+    width: 30rem;
+  }
+
+  .msg-description p {
+    font-size: 1.575rem;
+  }
+
+  .msg-message {
+    width: 30rem;
+  }
+
+  .asterisk-divider {
+    margin-left: 7.1rem;
+  }
+
+  .load-more-msg-img,
+  .load-more-msg-button {
+    width: 10.438rem;
+    height: 1.813rem;
+  }
+
+  .load-more-msg-button {
+    margin-left: 7.1rem;
+  }
+
+  .bear-img {
+    width: 4.103rem;
+    height: 5.4rem;
+  }
+
+  .flower-img {
+    width: 3.608rem;
+    height: 4.728rem;
+  }
+
+  .candy-img {
+    width: 5.989rem;
+    height: 4.483rem;
+  }
+
+  .form-container {
+    align-self: flex-start;
+    justify-self: flex-start;
+    left: 0rem;
+  }
+
+  label,
+  input,
+  textarea {
+    font-size: 1.575rem;
+  }
+}

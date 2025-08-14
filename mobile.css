@@ -1,0 +1,283 @@
+@media only screen and (max-width: 800px) {
+  .language-container {
+    height: auto;
+    margin-top: 2vmin;
+    z-index: 2;
+  }
+
+  .remember-section {
+    width: 100%;
+    max-width: 50rem;
+    padding: 0rem;
+  }
+
+  .title-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .title-img {
+    /*  width: 90%; */
+    width: 94vmin;
+    height: 100%;
+  }
+
+  .title-description {
+    margin-right: 0rem;
+    right: 5vmin;
+  }
+
+  .title-description:lang(ru) {
+    font-size: 2vw;
+  }
+
+  .title-description:lang(en) {
+    font-size: 2.1vw;
+    bottom: -4vmin;
+  }
+
+  .portrait-section:lang(en) {
+    margin-top: 11.7vmin;
+  }
+
+  .portrait-section:lang(ru) {
+    margin-top: 8vmin;
+  }
+
+  .portrait-section {
+    margin-bottom: 12vmin;
+  }
+
+  .butterfly-img {
+    width: 28vmin;
+    height: fit-content;
+    left: -2vmin;
+    top: -9vmin;
+  }
+
+  .portrait-img {
+    width: 93vmin;
+    height: 100%;
+  }
+
+  #memory-msg-container {
+    width: 81%;
+    margin-bottom: 10vmin;
+  }
+
+  h2 {
+    font-size: 8vw;
+    margin-left: 0rem;
+  }
+
+  .msgs-container {
+    margin-top: 14vmin;
+    margin-bottom: 11vmin;
+  }
+
+  .msg-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .msg-subcontainer {
+    width: fit-content;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 11vmin;
+  }
+
+  .msg-subcontainer-right > .stickers-img-container {
+    justify-content: center;
+    margin-left: 0rem;
+  }
+
+  .msg-subcontainer-left > .stickers-img-container {
+    justify-content: center;
+    margin-right: 0rem;
+  }
+
+  .msgs-container .msg-subcontainer img {
+    margin: 0rem;
+  }
+
+  .msg-description {
+    width: 100%;
+  }
+
+  .msg-description p {
+    font-size: 6vw;
+  }
+
+  .msg-date {
+    order: 0;
+  }
+
+  .msg-name {
+    order: 1;
+    align-self: flex-start;
+    margin-bottom: 6vmin;
+  }
+
+  .msg-message {
+    max-width: fit-content;
+    width: 100%;
+    order: 2;
+    margin-bottom: 0rem;
+  }
+
+  .load-more-msg-img,
+  .load-more-msg-button {
+    width: 32vmin;
+    height: fit-content;
+  }
+
+  .load-more-msg-button {
+    margin-left: 0rem;
+    align-self: center;
+  }
+
+  .bear-img {
+    width: 12vmin;
+    height: fit-content;
+  }
+
+  .flower-img {
+    width: 11vmin;
+    height: fit-content;
+  }
+
+  .candy-img {
+    width: 20vmin;
+    height: fit-content;
+  }
+
+  .asterisk-divider {
+    margin: 7vmin 0;
+    font-size: 5vw;
+  }
+
+  .form-container {
+    width: 90%;
+    grid-template-columns: 1fr;
+    gap: 4vmin 0vmin;
+    left: 0rem;
+  }
+
+  label,
+  input,
+  textarea {
+    font-size: 4vw;
+  }
+
+  .form-submit-container {
+    width: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 6vmin;
+    margin-top: 3vmin;
+    grid-column: 1 / 2;
+  }
+
+  .sticker-button {
+    width: 20vmin;
+    height: fit-content;
+    aspect-ratio: 1 / 1;
+  }
+
+  .stickers {
+    gap: 4vmin;
+  }
+
+  .sticker-candy {
+    width: 17vmin;
+    height: fit-content;
+  }
+
+  .sticker-flower {
+    width: 10vmin;
+    height: fit-content;
+  }
+
+  .sticker-bear {
+    width: 9vmin;
+    height: fit-content;
+  }
+
+  .submit-button-img {
+    width: 25vmin;
+    height: fit-content;
+  }
+
+  .stamp-container {
+    gap: 1.7vmin;
+    margin-top: 6vmin;
+    align-items: center;
+  }
+
+  .stamp-container p:nth-child(2) {
+    margin-bottom: 0.8vmin;
+  }
+
+  .soviet-union-img {
+    width: 9vmin;
+    height: fit-content;
+  }
+
+  .stamp-text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+
+  .stamp-text p,
+  .stamp-text a {
+    font-size: 2vw;
+  }
+
+  /* FOOTER */
+
+  .section-navbook {
+    padding-top: 11vmin;
+  }
+
+  .menu {
+    width: 100%;
+    /*  margin-top: 31vmin; */
+    margin-top: 14vmin;
+  }
+
+  .pages {
+    margin-left: -5vmin;
+    bottom: 4px;
+    /* bottom: -21px; */
+  }
+
+  .navbook {
+    max-width: 110vmin;
+    width: 110vmin;
+    margin-left: -9vmin;
+  }
+
+  .pages img {
+    width: 18vmin;
+    height: 100%;
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .pages img:hover {
+    width: 18vmin;
+  }
+}
+
+@media only screen and (orientation: landscape) and (max-width: 800px) {
+}
