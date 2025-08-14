@@ -280,4 +280,158 @@
 }
 
 @media only screen and (orientation: landscape) and (max-width: 800px) {
+  .language-container {
+    margin-top: 2vmax;
+  }
+
+
+  .title-img {
+    width: 94vmax;
+  }
+
+  .title-description {
+    right: 5vmax;
+  }
+
+  .title-description:lang(en) {
+    bottom: -4vmax;
+  }
+
+  .portrait-section:lang(en) {
+    margin-top: 11.7vmax;
+  }
+
+  .portrait-section:lang(ru) {
+    margin-top: 8vmax;
+  }
+
+  .portrait-section {
+    margin-bottom: 12vmax;
+  }
+
+  .butterfly-img {
+    width: 28vmax;
+    left: -2vmax;
+    top: -9vmax;
+  }
+
+  .portrait-img {
+    width: 93vmax;
+  }
+
+  #memory-msg-container {
+    margin-bottom: 10vmax;
+  }
+
+  .msgs-container {
+    margin-top: 14vmax;
+    margin-bottom: 11vmax;
+  }
+
+  .msg-subcontainer {
+    gap: 11vmax;
+  }
+
+  .msg-description {
+    width: 81vmax;
+  }
+
+  .msg-name {
+    margin-bottom: 6vmax;
+  }
+
+  .load-more-msg-img,
+  .load-more-msg-button {
+    width: 32vmax;
+  }
+
+  .bear-img {
+    width: 12vmax;
+  }
+
+  .flower-img {
+    width: 11vmax;
+  }
+
+  .candy-img {
+    width: 20vmax;
+  }
+
+  .asterisk-divider {
+    margin: 7vmax 0;
+  }
+
+  .form-container {
+    gap: 4vmax 0vmax;
+  }
+
+  .form-submit-container {
+    gap: 6vmax;
+    margin-top: 3vmax;
+  }
+
+  .sticker-button {
+    width: 20vmax;
+  }
+
+  .stickers {
+    gap: 4vmax;
+  }
+
+  .sticker-candy {
+    width: 17vmax;
+  }
+
+  .sticker-flower {
+    width: 10vmax;
+  }
+
+  .sticker-bear {
+    width: 9vmax;
+  }
+
+  .submit-button-img {
+    width: 25vmax;
+  }
+
+  .stamp-container {
+    gap: 1.7vmax;
+    margin-top: 6vmax;
+  }
+
+  .stamp-container p:nth-child(2) {
+    margin-bottom: 0.8vmax;
+  }
+
+  .soviet-union-img {
+    width: 9vmax;
+  }
+
+  /* FOOTER */
+
+  .section-navbook {
+    padding-top: 11vmax;
+  }
+
+  .menu {
+    margin-top: 14vmax;
+  }
+
+  .pages {
+    margin-left: -5vmax;
+  }
+
+  .navbook {
+    max-width: 110vmax;
+    width: 110vmax;
+    margin-left: -9vmax;
+  }
+
+  .pages img {
+    width: 18vmax;
+  }
+
+  .pages img:hover {
+    width: 18vmax;
+  }
 }
