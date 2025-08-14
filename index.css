@@ -380,8 +380,8 @@ textarea {
 textarea {
   resize: none;
   min-height: 160px;
-  /* word-break: keep-all;
-  overflow-wrap: break-word; */
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .form-submit-container {
