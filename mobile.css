@@ -53,7 +53,7 @@
 
   .butterfly-img {
     width: 28vmin;
-    height: 100%;
+    height: min-content;
     left: -2vmin;
     top: -9vmin;
   }
