@@ -53,7 +53,7 @@
 
   .butterfly-img {
     width: 28vmin;
-    height: fit-content;
+    height: 100%;
     left: -2vmin;
     top: -9vmin;
   }
@@ -136,7 +136,7 @@
   .load-more-msg-img,
   .load-more-msg-button {
     width: 32vmin;
-    height: fit-content;
+    height: 100%;
   }
 
   .load-more-msg-button {
@@ -146,17 +146,17 @@
 
   .bear-img {
     width: 12vmin;
-    height: fit-content;
+    height: 100%;
   }
 
   .flower-img {
     width: 11vmin;
-    height: fit-content;
+    height: 100%;
   }
 
   .candy-img {
     width: 20vmin;
-    height: fit-content;
+    height: 100%;
   }
 
   .asterisk-divider {
@@ -189,7 +189,7 @@
 
   .sticker-button {
     width: 20vmin;
-    height: fit-content;
+    height: 100%;
     aspect-ratio: 1 / 1;
   }
 
@@ -199,22 +199,22 @@
 
   .sticker-candy {
     width: 17vmin;
-    height: fit-content;
+    height: 100%;
   }
 
   .sticker-flower {
     width: 10vmin;
-    height: fit-content;
+    height: 100%;
   }
 
   .sticker-bear {
     width: 9vmin;
-    height: fit-content;
+    height: 100%;
   }
 
   .submit-button-img {
     width: 25vmin;
-    height: fit-content;
+    height: 100%;
   }
 
   .stamp-container {
@@ -229,7 +229,7 @@
 
   .soviet-union-img {
     width: 9vmin;
-    height: fit-content;
+    height: 100%;
   }
 
   .stamp-text {
