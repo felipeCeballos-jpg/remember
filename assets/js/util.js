@@ -45,6 +45,7 @@ export function resetAnimation(elements) {
   });
 }
 
+
 export function initMessages(container, data) {
   if (data.length < 4) {
     loadingMessages(container, data);

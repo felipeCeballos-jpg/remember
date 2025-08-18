@@ -136,3 +136,5 @@ export const localizedText = {
     texts: ENText,
   },
 };
+
+export let paginationPage = 1;
