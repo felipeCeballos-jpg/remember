@@ -79,7 +79,7 @@ export const RUText = [
 
 export const ENText = [
   'Dedicated to my grandmother • 1933-2019',
-  'Leave a memory',
+  'Leave <br> a memory',
   /* `We were very happy to meet your mother, we lived next door and helped her with the housework. <br/> In the evenings, she treated us to pies and was always very kind. It's a pity that this happened. The world has lost a very bright man.`,
   'Anna and Bob Zemanov',
   'There are millions of words I can say in memory of my grandmother, but today I will be brief.: Thank you for everything, rest in peace.',
