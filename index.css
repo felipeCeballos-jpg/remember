@@ -55,8 +55,7 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   /* padding: 0px 50px; */ 
-  overflow-x: hidden;
-  overflow-y: clip;
+  overflow: hidden;
 }
 
 .remember-section img {
