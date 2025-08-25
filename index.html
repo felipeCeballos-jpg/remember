@@ -69,11 +69,16 @@
         </button> -->
       </section>
       <section id="form-msg-section" class="form-section remember-section">
-        <img
-          class="line-img"
-          alt="just line to divide the form and the messages"
-          src="assets/cut-line.webp"
-        />
+        <picture>
+          <source
+            media="(max-width: 800px)"
+            srcset="assets/cut-line-mobile.webp">
+          <img
+            class="line-img"
+            alt="just line to divide the form and the messages"
+            src="assets/cut-line.webp"
+          />
+      </picture>
         <form class="form-container">
           <div class="field">
             <label for="Name" class="changeable-txt">Name:</label>
