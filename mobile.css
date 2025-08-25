@@ -165,10 +165,6 @@
     font-size: 5vw;
   }
 
-  .line-img {
-    overflow-x: hidden;
-  }
-
   .form-container {
     width: 90%;
     gap: 4vmin 0vmin;
