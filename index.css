@@ -51,7 +51,7 @@ main {
   align-items: center;
   background-image: url('./assets/bg.webp');
   background-position: center top;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   /* padding: 0px 50px; */
 }
