@@ -9,6 +9,10 @@ import {
   initMessages,
   sendMessage,
   loadMoreMessages,
+  initFormValidation,
+  validateField,
+  validateSticker,
+  clearStickerError,
 } from './util.js';
 
 const switchLanguageButton = document.getElementById('language-selector');
@@ -37,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
   updateDesign(mqlMobile.matches);
 
   initMessages(messageContainer, db);
-
+  initFormValidation();
   booksAnimation();
 });
 
@@ -82,9 +86,15 @@ form.addEventListener('submit', (event) => {
   const name = document.querySelector('#Name');
   const message = document.querySelector('#Message');
   const sticker = document.querySelector('#selectedsticker');
+  const stickersContainer = document.querySelector('.stickers-input');
+  const scrollPosition = window.scrollY;
 
-  if (name.value === '' || message.value === '' || sticker.value === '') {
-    alert('You need to select a sticker');
+  // Validate all fields and show errors
+  const isNameValid = validateField(name);
+  const isMessageValid = validateField(message);
+  const isStickerValid = validateSticker(sticker, stickersContainer);
+
+  if (!isNameValid || !isMessageValid || !isStickerValid) {
     return;
   }
 
@@ -103,13 +113,20 @@ form.addEventListener('submit', (event) => {
   name.value = '';
   message.value = '';
   sticker.value = '';
+
+  requestAnimationFrame(() => {
+    window.scrollTo(0, scrollPosition);
+  });
 });
 
 stickers.forEach((sticker) => {
   sticker.addEventListener('click', () => {
     const sticker_imgs = document.querySelectorAll('.sticker');
+    const stickersContainer = document.querySelector('.stickers-input');
+
     // remove selection from all
     sticker_imgs.forEach((s) => s.classList.remove('selected-sticker'));
+
     // mark this as selected
     sticker_imgs.forEach((s) => {
       const splitText = s.alt.split(' ');
@@ -125,6 +142,9 @@ stickers.forEach((sticker) => {
     ) {
       // store value in hidden input
       hiddenStickerInput.value = sticker.dataset.value;
+
+      // Clear any existing sticker validation error
+      clearStickerError(stickersContainer);
       return;
     }
 
@@ -139,6 +159,7 @@ document.addEventListener('click', (e) => {
     const messagesContiner = document.querySelectorAll('.msg-container');
     const messagesContainerLength = messagesContiner.length;
     const dbLength = db.length;
+    const scrollPosition = window.scrollY;
 
     const MESSAGES_SHOWN_PER_CLICK = 3;
     const newMessagesLength =
@@ -151,5 +172,9 @@ document.addEventListener('click', (e) => {
       const hasAllMessages = true;
       loadMoreMessages(messageContainer, db, hasAllMessages);
     }
+
+    requestAnimationFrame(() => {
+      window.scrollTo(0, scrollPosition);
+    });
   }
 });

@@ -55,7 +55,6 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   /* padding: 0px 50px; */
-  overflow: hidden; /* only hide horizontal overflow */
 }
 
 .remember-section img {
@@ -93,7 +92,7 @@ main {
   /* margin-right: 1rem; */
   margin-right: 7rem;
   margin-bottom: 1.25rem;
-  cursor: pointer;
+  cursor: pointer !important;
   transition: none;
   pointer-events: auto !important;
   z-index: 2;
@@ -130,8 +129,9 @@ main {
 }
 
 .portrait-section {
-  display: grid;
-  place-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-bottom: 9.813rem;
 }
 
@@ -175,7 +175,7 @@ h2 {
 }
 
 button {
-  cursor: pointer;
+  cursor: pointer !important;
 }
 
 .msgs-container {
@@ -198,32 +198,6 @@ button {
   flex-direction: row-reverse;
   justify-content: flex-start;
 }
-
-/* .msg-subcontainer-left > .bear-img {
-  margin-right: 3.944rem;
-}
-
-.msg-subcontainer-left > .candy-img {
-  margin-right: 1.14rem;
-}
-
-.msg-subcontainer-left > .flower-img {
-  margin-right: 4.54rem;
-}
-
-.msg-subcontainer-right > .bear-img {
-  margin-left: 3.62rem;
-}
-
-.msg-subcontainer-right > .candy-img {
-  margin-left: 0.97rem;
-} 
-
-.msg-subcontainer-right > .flower-img {
-  margin-left: 4.31rem;
-}
-
-*/
 
 .stickers-img-container {
   display: flex;
@@ -253,7 +227,7 @@ button {
 
 .msg-description p {
   font-size: 1.875rem;
-  /* font-size: 2.25rem; */
+  color: #292929;
 }
 
 .msg-date {
@@ -266,10 +240,11 @@ button {
   order: 2;
   text-align: end;
   font-style: italic;
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
 }
 
 .msg-message {
-  /*  width: 35ch; */
   max-width: 35rem;
   width: fit-content;
   white-space: pre-wrap;
@@ -334,30 +309,49 @@ button {
   position: relative;
   left: -3.5rem;
   width: 40.213rem;
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 14px 16px;
-  align-items: start;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
   margin-top: 3.125rem;
 }
 
-label {
-  font-size: 1.625rem;
-  font-style: italic;
+.field {
+  display: flex;
+  align-items: flex-start;
 }
 
-input,
-textarea {
+label {
+  min-width: 78px;
+  font-size: 1.625rem;
+  font-style: italic;
+  margin-right: 2rem;
+}
+
+.input-wrapper {
+  display: flex;
+  flex-direction: column; /* stack input and error */
+  width: 100%;
+}
+
+.input-wrapper:has(input) {
+  height: 90px;
+}
+
+.input-wrapper:has(textarea) {
+  height: 189px;
+}
+
+.text-input {
+  width: 100%;
   font-size: 1.625rem;
   background-color: transparent;
 }
 
 .text-input {
   appearance: none;
-  width: 100%;
   background: transparent;
-  border: 2px solid #3b3f44;
-  color: #3b3f44;
+  border: 2px solid #000000;
+  color: #000000;
   padding: 10px 12px;
   border-radius: 2px;
   line-height: 1.5;
@@ -366,37 +360,64 @@ textarea {
     background-color 180ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .text-input::placeholder {
-  color: #6d7176;
+  color: #000000;
 }
-.text-input:hover {
-  box-shadow: 0 1px 0 0 rgba(59, 63, 68, 0.4);
-}
+
 .text-input:focus {
   outline: none;
-  border-color: #17191b;
-  box-shadow: 0 0 0 2px rgba(23, 25, 27, 0.08);
+  border-color: #000000;
+}
+
+.input-invalid,
+.message-invalid {
+  border: 2px solid #c73e3e;
+}
+
+.stickers-invalid {
+  border-bottom: 2px solid #c73e3e !important;
+}
+
+.invalid-stickers {
+  color: #c73e3e;
+  font-size: 0.8rem;
+  margin-top: 5px;
+  position: absolute;
+}
+
+.invalid-input,
+.invalid-textarea {
+  height: 19.5px;
+  color: #c73e3e;
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
 textarea {
   resize: none;
-  min-height: 160px;
+  min-height: 200px;
   word-break: keep-all;
   overflow-wrap: break-word;
 }
 
 .form-submit-container {
-  grid-column: 2 / 3;
   display: flex;
   flex-direction: row-reverse;
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
   margin-top: 2.2rem;
+  margin-left: 110px;
 }
 
 .stickers {
   display: flex;
+}
+
+.stickers-input {
+  width: 100%;
+  display: flex;
   gap: 1rem;
+  border-bottom: 2px solid transparent;
 }
 
 .submit-button-img {
@@ -406,7 +427,7 @@ textarea {
 .sticker-button {
   width: 5.541rem;
   height: 4.894rem;
-  cursor: pointer;
+  cursor: pointer !important;
   display: grid;
   place-content: center;
 }
@@ -425,6 +446,24 @@ textarea {
 
 .sticker-bear {
   width: 3.481rem;
+}
+
+.glasses-container {
+  position: absolute;
+  width: 40.213rem;
+  height: 43.057rem;
+  left: -35rem;
+  bottom: -18rem;
+  z-index: 3;
+}
+
+.glasses-img {
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/ochki.webp');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100%;
 }
 
 .stamp-container {
@@ -545,7 +584,7 @@ textarea {
 }
 
 .pages img:hover {
-  cursor: pointer;
+  cursor: pointer !important;
   transform: translateY(-1rem);
 }
 

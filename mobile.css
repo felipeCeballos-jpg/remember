@@ -7,7 +7,7 @@
 
   .remember-section {
     width: 100%;
-    max-width: 50rem;
+    max-width: 100%;
     padding: 0rem;
   }
 
@@ -53,7 +53,7 @@
 
   .butterfly-img {
     width: 28vmin;
-    height: min-content;
+    height: auto;
     left: -2vmin;
     top: -9vmin;
   }
@@ -87,7 +87,7 @@
   }
 
   .msg-subcontainer {
-    width: fit-content;
+    width: auto;
     flex-direction: column-reverse;
     justify-content: center;
     align-items: center;
@@ -121,13 +121,14 @@
   }
 
   .msg-name {
+    width: 100%;
     order: 1;
     align-self: flex-start;
     margin-bottom: 6vmin;
   }
 
   .msg-message {
-    max-width: fit-content;
+    max-width: auto;
     width: 100%;
     order: 2;
     margin-bottom: 0rem;
@@ -136,7 +137,7 @@
   .load-more-msg-img,
   .load-more-msg-button {
     width: 32vmin;
-    height: 100%;
+    height: auto;
   }
 
   .load-more-msg-button {
@@ -146,17 +147,17 @@
 
   .bear-img {
     width: 12vmin;
-    height: 100%;
+    height: auto;
   }
 
   .flower-img {
     width: 11vmin;
-    height: 100%;
+    height: auto;
   }
 
   .candy-img {
     width: 20vmin;
-    height: 100%;
+    height: auto;
   }
 
   .asterisk-divider {
@@ -166,15 +167,39 @@
 
   .form-container {
     width: 90%;
-    grid-template-columns: 1fr;
     gap: 4vmin 0vmin;
     left: 0rem;
   }
 
+  .field {
+    flex-direction: column;
+    gap: 1vmin;
+  }
+
   label,
   input,
-  textarea {
+  textarea,
+  .text-input {
     font-size: 4vw;
+  }
+
+  textarea {
+    min-height: 31vmin;
+  }
+
+  .input-wrapper:has(input) {
+    height: 14vmin;
+  }
+
+  .input-wrapper:has(textarea) {
+    height: 36vmin;
+  }
+
+  .invalid-input,
+  .invalid-textarea {
+    font-size: 3vw;
+    margin-top: 0.9vmin;
+    height: 100%;
   }
 
   .form-submit-container {
@@ -184,37 +209,42 @@
     align-items: center;
     gap: 6vmin;
     margin-top: 3vmin;
-    grid-column: 1 / 2;
+    margin-left: 0rem;
   }
 
   .sticker-button {
     width: 20vmin;
-    height: 100%;
+    height: auto;
     aspect-ratio: 1 / 1;
   }
 
-  .stickers {
+  .stickers-input {
+    justify-content: center;
     gap: 4vmin;
   }
 
   .sticker-candy {
     width: 17vmin;
-    height: 100%;
+    height: auto;
   }
 
   .sticker-flower {
     width: 10vmin;
-    height: 100%;
+    height: auto;
   }
 
   .sticker-bear {
     width: 9vmin;
-    height: 100%;
+    height: auto;
   }
 
   .submit-button-img {
     width: 25vmin;
-    height: 100%;
+    height: auto;
+  }
+
+  .glasses-container {
+    display: none;
   }
 
   .stamp-container {
@@ -229,7 +259,7 @@
 
   .soviet-union-img {
     width: 9vmin;
-    height: 100%;
+    height: auto;
   }
 
   .stamp-text {
@@ -283,7 +313,6 @@
   .language-container {
     margin-top: 2vmax;
   }
-
 
   .title-img {
     width: 94vmax;
@@ -365,6 +394,27 @@
     gap: 4vmax 0vmax;
   }
 
+  .field {
+    gap: 1vmax;
+  }
+
+  textarea {
+    min-height: 31vmax;
+  }
+
+  .input-wrapper:has(input) {
+    height: 14vmax;
+  }
+
+  .input-wrapper:has(textarea) {
+    height: 36vmax;
+  }
+
+  .invalid-input,
+  .invalid-textarea {
+    margin-top: 0.9vmax;
+  }
+
   .form-submit-container {
     gap: 6vmax;
     margin-top: 3vmax;
@@ -374,7 +424,7 @@
     width: 20vmax;
   }
 
-  .stickers {
+  .stickers-input {
     gap: 4vmax;
   }
 
@@ -433,5 +483,38 @@
 
   .pages img:hover {
     width: 18vmax;
+  }
+
+  .main {
+    margin: -3vmax 0 0 5vmax;
+  }
+
+  .milestones {
+    margin: 1vmax 0 0 -3vmax;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .stories {
+    margin: -4vmax 0 0 -6vmax;
+    height: 100%;
+  }
+
+  .gallery {
+    margin: 1vmax 0 0 -3vmax;
+    height: 100%;
+    z-index: 1;
+  }
+
+  .my-granny {
+    margin: -4vmax 0 0 -6vmax;
+  }
+
+  .remember {
+    margin: 1.5vmax 0 0 -4vmax;
+  }
+
+  .map {
+    margin: -3vmax 0 0 -3vmax;
   }
 }

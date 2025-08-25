@@ -45,7 +45,6 @@ export function resetAnimation(elements) {
   });
 }
 
-
 export function initMessages(container, data) {
   if (data.length < 4) {
     loadingMessages(container, data);
@@ -75,7 +74,6 @@ export function initMessages(container, data) {
 }
 
 export function sendMessage(container, data) {
-  console.log({ data });
   if (data.length < 4) {
     console.log('entre');
     loadingMessages(container, data);
@@ -275,4 +273,165 @@ export function getDateFormat() {
       return `${day}.${month}.${date.getUTCFullYear()}`;
     }
   }
+}
+
+// Extract validation functions to be exportable
+function showError(input) {
+  // Add error class
+  if (input.tagName.toLowerCase() === 'textarea') {
+    input.classList.add('message-invalid');
+  } else {
+    input.classList.add('input-invalid');
+  }
+
+  // Find or create error message element
+  const wrapper = input.closest('.input-wrapper');
+  let errorElement = wrapper.querySelector('.invalid-input, .invalid-textarea');
+
+  if (!errorElement) {
+    errorElement = document.createElement('div');
+    errorElement.className =
+      input.tagName.toLowerCase() === 'textarea'
+        ? 'invalid-textarea'
+        : 'invalid-input';
+    errorElement.textContent = 'This field is required';
+    wrapper.appendChild(errorElement);
+  }
+}
+
+function clearError(input) {
+  // Remove error classes
+  input.classList.remove('input-invalid', 'message-invalid');
+
+  // Remove error message
+  const wrapper = input.closest('.input-wrapper');
+  const errorElement = wrapper.querySelector(
+    '.invalid-input, .invalid-textarea'
+  );
+  if (errorElement) {
+    errorElement.remove();
+  }
+}
+
+export function validateField(input) {
+  if (input.value.trim() === '') {
+    showError(input);
+    return false;
+  }
+  clearError(input);
+  return true;
+}
+
+// Form validation controller
+export function initFormValidation() {
+  // Get all form inputs and textareas
+  const inputs = document.querySelectorAll('.text-input');
+
+  // Track input states
+  const inputStates = new Map();
+
+  inputs.forEach((input) => {
+    // Initialize state for each input
+    inputStates.set(input, {
+      hasBeenFocused: false,
+      isTyping: false,
+      typingTimer: null,
+    });
+
+    // Focus event - user enters input
+    input.addEventListener('focus', function () {
+      const state = inputStates.get(input);
+
+      // If input has error and user focuses, clear error
+      if (
+        input.classList.contains('input-invalid') ||
+        input.classList.contains('message-invalid')
+      ) {
+        clearError(input);
+      }
+
+      state.hasBeenFocused = true;
+    });
+
+    // Input event - user is typing
+    input.addEventListener('input', function () {
+      const state = inputStates.get(input);
+      state.isTyping = true;
+
+      // Clear any existing timer
+      if (state.typingTimer) {
+        clearTimeout(state.typingTimer);
+      }
+
+      // Clear error while typing
+      if (
+        input.classList.contains('input-invalid') ||
+        input.classList.contains('message-invalid')
+      ) {
+        clearError(input);
+      }
+
+      // Set timer to detect when user stops typing
+      state.typingTimer = setTimeout(() => {
+        state.isTyping = false;
+
+        // Check if input is empty after user stops typing
+        if (state.hasBeenFocused && input.value.trim() === '') {
+          showError(input);
+        }
+      }, 1000); // 1 second after stopping typing
+    });
+
+    // Blur event - user leaves input (including clicking elsewhere)
+    input.addEventListener('blur', function () {
+      const state = inputStates.get(input);
+
+      // Clear any pending timer since user left the input
+      if (state.typingTimer) {
+        clearTimeout(state.typingTimer);
+        state.typingTimer = null;
+      }
+
+      state.isTyping = false;
+
+      // If input has been focused and is empty, show error
+      if (state.hasBeenFocused && input.value.trim() === '') {
+        showError(input);
+      }
+    });
+  });
+}
+
+export function validateSticker(stickerInput, stickersContainer) {
+  if (stickerInput.value === '') {
+    showStickerError(stickersContainer);
+    return false;
+  }
+  clearStickerError(stickersContainer);
+  return true;
+}
+
+function showStickerError(stickersContainer) {
+  // Add error class to stickers container
+  stickersContainer.classList.add('stickers-invalid');
+
+  /*  // Find or create error message element
+  let errorElement = stickersContainer.querySelector('.invalid-stickers');
+  if (!errorElement) {
+    errorElement = document.createElement('div');
+    errorElement.className = 'invalid-stickers';
+    errorElement.textContent = 'Please select a sticker';
+    stickersContainer.appendChild(errorElement);
+  } */
+}
+
+export function clearStickerError(stickersContainer) {
+  // Remove error class
+  stickersContainer.classList.remove('stickers-invalid');
+
+  /* // Remove error message
+  const errorElement = stickersContainer.querySelector('.invalid-stickers');
+  if (errorElement) {
+    errorElement.remove();
+  } */
 }

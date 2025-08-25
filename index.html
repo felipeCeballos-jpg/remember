@@ -75,26 +75,33 @@
           src="assets/cut-line.webp"
         />
         <form class="form-container">
-          <label for="Name" class="changeable-txt">Name:</label>
-          <input
-            id="Name"
-            name="Name"
-            type="text"
-            class="text-input"
-            autocomplete="off"
-            required
-          />
-          <label for="Message" class="changeable-txt">Text:</label>
-          <textarea
-            id="Message"
-            name="Message"
-            rows="6"
-            class="text-input"
-            autocomplete="off"
-            required
-          >
-Hello...
-          </textarea>
+          <div class="field">
+            <label for="Name" class="changeable-txt">Name:</label>
+            <div class="input-wrapper">
+              <input
+                id="Name"
+                name="Name"
+                type="text"
+                class="text-input"
+                autocomplete="off"
+                maxlength="300"
+              />
+            </div>
+          </div>
+          <div class="field">
+            <label for="Message" class="changeable-txt">Text:</label>
+            <div class="input-wrapper">
+              <textarea
+                id="Message"
+                name="Message"
+                class="text-input"
+                autocomplete="off"
+                placeholder="Hello..."
+                maxlength="1500"
+              ></textarea>
+            </div>
+            <span></span>
+          </div>
           <div class="form-submit-container">
             <div class="stickers">
               <input
@@ -103,26 +110,28 @@ Hello...
                 id="selectedsticker"
                 required
               />
-              <div class="sticker-button" data-value="candy">
-                <img
-                  alt="candy sticker"
-                  class="sticker-candy sticker"
-                  src="assets/candy.webp"
-                />
-              </div>
-              <div class="sticker-button" data-value="flower">
-                <img
-                  alt="flower sticker"
-                  class="sticker-flower sticker"
-                  src="assets/flower.png"
-                />
-              </div>
-              <div class="sticker-button" data-value="bear">
-                <img
-                  alt="bear sticker"
-                  class="sticker-bear sticker"
-                  src="assets/bear.webp"
-                />
+              <div class="stickers-input">
+                <div class="sticker-button" data-value="candy">
+                  <img
+                    alt="candy sticker"
+                    class="sticker-candy sticker"
+                    src="assets/candy.webp"
+                  />
+                </div>
+                <div class="sticker-button" data-value="flower">
+                  <img
+                    alt="flower sticker"
+                    class="sticker-flower sticker"
+                    src="assets/flower.png"
+                  />
+                </div>
+                <div class="sticker-button" data-value="bear">
+                  <img
+                    alt="bear sticker"
+                    class="sticker-bear sticker"
+                    src="assets/bear.webp"
+                  />
+                </div>
               </div>
             </div>
             <button type="submit" class="form-submit-button">
@@ -147,6 +156,9 @@ Hello...
             </p>
             <a href="#" class="email-link">tkachinni@gmail.com</a>
           </div>
+        </div>
+        <div class="glasses-container">
+          <div class="glasses-img"></div>
         </div>
       </section>
     </main>

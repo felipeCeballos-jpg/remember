@@ -126,4 +126,11 @@
   textarea {
     font-size: 1.575rem;
   }
+
+  .glasses-container {
+    width: 28.724rem;
+    height: 30.755rem;
+    left: -26rem;
+    bottom: -12rem;
+  }
 }
