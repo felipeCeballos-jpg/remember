@@ -390,6 +390,10 @@
     margin: 7vmax 0;
   }
 
+  .line-img {
+    width: 100vw
+  }
+
   .form-container {
     gap: 4vmax 0vmax;
   }
