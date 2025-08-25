@@ -228,7 +228,6 @@ button {
 
 .msg-description p {
   font-size: 1.875rem;
-  color: #292929;
 }
 
 .msg-date {
@@ -252,6 +251,7 @@ button {
   overflow-wrap: break-word;
   order: 1;
   margin-bottom: 3.813rem;
+  color: #292929;
 }
 
 .asterisk-divider {
