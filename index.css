@@ -8,7 +8,6 @@
 
 html,
 body {
-  overflow-x: hidden;
   height: 100%;
 }
 
@@ -36,6 +35,7 @@ body {
   color: #000000;
   font-family: 'candara', sans-serif;
   font-style: normal;
+  overflow-x: hidden;
 }
 
 body .loader img {
@@ -54,8 +54,7 @@ main {
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
-  /* padding: 0px 50px; */
-  overflow-x: hidden 
+  /* padding: 0px 50px; */ 
 }
 
 .remember-section img {
