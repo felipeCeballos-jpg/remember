@@ -9,6 +9,7 @@
 html,
 body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 .loader {
@@ -35,7 +36,6 @@ body {
   color: #000000;
   font-family: 'candara', sans-serif;
   font-style: normal;
-  overflow-x: hidden;
 }
 
 body .loader img {
