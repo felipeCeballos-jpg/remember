@@ -53,8 +53,7 @@ main {
   background-position: center top;
   background-size: cover;
   background-repeat: no-repeat;
-  /* padding: 0px 50px; */ 
-  overflow: hidden;
+  /* padding: 0px 50px; */
 }
 
 .remember-section img {
