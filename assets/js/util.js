@@ -276,7 +276,7 @@ export function getDateFormat() {
 }
 
 // Extract validation functions to be exportable
-function showError(input) {
+function showError(input, customMessage = "This field is required") {
   // Add error class
   if (input.tagName.toLowerCase() === 'textarea') {
     input.classList.add('message-invalid');
@@ -294,7 +294,7 @@ function showError(input) {
       input.tagName.toLowerCase() === 'textarea'
         ? 'invalid-textarea'
         : 'invalid-input';
-    errorElement.textContent = 'This field is required';
+    errorElement.textContent = customMessage;
     wrapper.appendChild(errorElement);
   }
 }
@@ -314,10 +314,23 @@ function clearError(input) {
 }
 
 export function validateField(input) {
-  if (input.value.trim() === '') {
+  const value = input.value.trim();
+
+  if (value === '') {
     showError(input);
     return false;
   }
+
+  if (input.id === "Name" && value.length > 300) {
+    showError(input, "Maximum 300 characters allowed");
+    return false;
+  }
+
+  if (input.id === "Message" && value.length > 1500) {
+    showError(input, "Maximum 1500 characters allowed");
+    return false;
+  }
+
   clearError(input);
   return true;
 }
