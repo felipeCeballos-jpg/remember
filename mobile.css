@@ -202,7 +202,7 @@
   }
 
   .input-wrapper:has(input) {
-    height: 14vmin;
+    height: 18vmin;
   }
 
   .input-wrapper:has(textarea) {
@@ -417,7 +417,7 @@
   }
 
   .input-wrapper:has(input) {
-    height: 14vmax;
+    height: 18vmax;
   }
 
   .input-wrapper:has(textarea) {
