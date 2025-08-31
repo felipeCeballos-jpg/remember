@@ -55,7 +55,6 @@ switchLanguageButton.addEventListener('click', () => {
     checkLoaded(result.timestamp, loader, true);
   });
 
-
   booksAnimation();
 });
 
