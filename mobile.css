@@ -5,14 +5,6 @@
     z-index: 2;
   }
 
-  .language-button {
-    margin: 0;
-  }
-
-  .language-selector {
-    width: 17vmin;
-  }
-
   .remember-section {
     width: 100%;
     max-width: 100%;
@@ -325,10 +317,6 @@
 @media only screen and (orientation: landscape) and (max-width: 800px) {
   .language-container {
     margin-top: 2vmax;
-  }
-
-  .language-selector {
-    width: 17vmax;
   }
 
   .title-img {
