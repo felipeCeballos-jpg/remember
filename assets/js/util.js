@@ -230,6 +230,47 @@ function updateText(language) {
   textElements.forEach((text, index) => {
     text.innerHTML = currentResource[index];
   });
+
+  // Update textarea placeholder
+  const name = document.querySelector('#Name');
+  const message = document.querySelector('#Message');
+  if (message) {
+    const placeholder = language === 'ru' ? 'Здравствуйте…' : 'Hello...';
+    message.placeholder = placeholder;
+  }
+
+  // Update error messages in inputs
+  if (name.classList.contains('input-invalid')) {
+    if (name.value.trim() === '') {
+      const messageTxt =
+        language === 'ru' ? 'Обязательное поле' : 'This field is required';
+      showError(name, messageTxt);
+    }
+
+    if (name.value.length > 300) {
+      const messageTxt =
+        language === 'ru'
+          ? 'Максимальная длина — 300 символов.'
+          : 'Maximum length is 300 characters';
+      showError(name, messageTxt);
+    }
+  }
+
+  if (message.classList.contains('message-invalid')) {
+    if (message.value.trim() === '') {
+      const messageTxt =
+        language === 'ru' ? 'Обязательное поле' : 'This field is required';
+      showError(message, messageTxt);
+    }
+
+    if (message.value.length > 1500) {
+      const messageTxt =
+        language === 'ru'
+          ? 'Максимальная длина — 1500 символов.'
+          : 'Maximum length is 1500 characters';
+      showError(message, messageTxt);
+    }
+  }
 }
 
 export function booksAnimation() {
@@ -276,8 +317,8 @@ export function getDateFormat() {
 }
 
 // Extract validation functions to be exportable
-function showError(input, customMessage = "This field is required") {
-  // Add error class
+function showError(input, customMessage) {
+  // Add error class with animation
   if (input.tagName.toLowerCase() === 'textarea') {
     input.classList.add('message-invalid');
   } else {
@@ -294,40 +335,63 @@ function showError(input, customMessage = "This field is required") {
       input.tagName.toLowerCase() === 'textarea'
         ? 'invalid-textarea'
         : 'invalid-input';
-    errorElement.textContent = customMessage;
     wrapper.appendChild(errorElement);
   }
+  errorElement.textContent = customMessage;
 }
 
 function clearError(input) {
-  // Remove error classes
-  input.classList.remove('input-invalid', 'message-invalid');
-
-  // Remove error message
+  // Find error message element
   const wrapper = input.closest('.input-wrapper');
   const errorElement = wrapper.querySelector(
     '.invalid-input, .invalid-textarea'
   );
+
   if (errorElement) {
-    errorElement.remove();
+    // Add removing class for exit animation
+    errorElement.classList.add('removing');
+
+    // Wait for animation to complete before removing
+    setTimeout(() => {
+      if (errorElement.parentNode) {
+        errorElement.remove();
+      }
+    }, 150); // Match the fadeOutError animation duration
   }
+
+  // Remove error classes from input (with transition)
+  input.classList.remove('input-invalid', 'message-invalid');
 }
 
-export function validateField(input) {
+export function validateField(input, lang) {
   const value = input.value.trim();
 
   if (value === '') {
-    showError(input);
+    const message =
+      lang === 'ru' ? 'Обязательное поле' : 'This field is required';
+
+    showError(input, message);
     return false;
   }
 
-  if (input.id === "Name" && value.length > 300) {
-    showError(input, "Maximum 300 characters allowed");
+  // Check length validation based on input ID
+  if (input.id === 'Name' && value.length > 300) {
+    const message =
+      lang === 'ru'
+        ? 'Максимальная длина — 300 символов.'
+        : 'Maximum length is 300 characters';
+
+    showError(input, message);
     return false;
   }
 
-  if (input.id === "Message" && value.length > 1500) {
-    showError(input, "Maximum 1500 characters allowed");
+  if (input.id === 'Message' && value.length > 1500) {
+    const message =
+      lang === 'ru'
+        ? 'Максимальная длина — 1500 символов.'
+        : 'Maximum length is 1500 characters';
+
+    showError(input, message);
     return false;
   }
 
@@ -336,7 +400,7 @@ export function validateField(input) {
 }
 
 // Form validation controller
-export function initFormValidation() {
+export function initFormValidation(lang) {
   // Get all form inputs and textareas
   const inputs = document.querySelectorAll('.text-input');
 
@@ -355,12 +419,24 @@ export function initFormValidation() {
     input.addEventListener('focus', function () {
       const state = inputStates.get(input);
 
-      // If input has error and user focuses, clear error
+      // Only clear error on focus if it's NOT a length error and input is not empty
       if (
         input.classList.contains('input-invalid') ||
         input.classList.contains('message-invalid')
       ) {
-        clearError(input);
+        const wrapper = input.closest('.input-wrapper');
+        const errorElement = wrapper.querySelector(
+          '.invalid-input, .invalid-textarea'
+        );
+        const isLengthError =
+          errorElement &&
+          (errorElement.textContent.includes('Maximum length') ||
+            errorElement.textContent.includes('Максимальная длина'));
+
+        // Don't clear length errors on focus, and don't clear required field errors if input is empty
+        if (!isLengthError && input.value.trim() !== '') {
+          clearError(input);
+        }
       }
 
       state.hasBeenFocused = true;
@@ -376,22 +452,67 @@ export function initFormValidation() {
         clearTimeout(state.typingTimer);
       }
 
-      // Clear error while typing
+      // Clear required field errors when user starts typing (but keep length errors)
       if (
         input.classList.contains('input-invalid') ||
         input.classList.contains('message-invalid')
       ) {
-        clearError(input);
+        const wrapper = input.closest('.input-wrapper');
+        const errorElement = wrapper.querySelector(
+          '.invalid-input, .invalid-textarea'
+        );
+        const isLengthError =
+          errorElement &&
+          (errorElement.textContent.includes('Maximum length') ||
+            errorElement.textContent.includes('Максимальная длина'));
+
+        // Only clear non-length errors when typing
+        if (!isLengthError) {
+          clearError(input);
+        }
+      }
+
+      // Real-time length validation while typing
+      const value = input.value;
+      if (input.id === 'Name' && value.length > 300) {
+        const message =
+          lang === 'ru'
+            ? 'Максимальная длина — 300 символов.'
+            : 'Maximum length is 300 characters';
+
+        showError(input, message);
+      } else if (input.id === 'Message' && value.length > 1500) {
+        const message =
+          lang === 'ru'
+            ? 'Максимальная длина — 1500 символов.'
+            : 'Maximum length is 1500 characters';
+
+        showError(input, message);
+      } else {
+        // Clear length error if user is now within limits
+        const wrapper = input.closest('.input-wrapper');
+        const errorElement = wrapper.querySelector(
+          '.invalid-input, .invalid-textarea'
+        );
+        if (
+          errorElement &&
+          (errorElement.textContent.includes('Maximum length') ||
+            errorElement.textContent.includes('Максимальная длина'))
+        ) {
+          clearError(input);
+        }
+      }
+
+      // Show empty field error while typing if field becomes empty
+      if (state.hasBeenFocused && input.value.trim() === '') {
+        const message =
+          lang === 'ru' ? 'Обязательное поле' : 'This field is required';
+        showError(input, message);
       }
 
       // Set timer to detect when user stops typing
       state.typingTimer = setTimeout(() => {
         state.isTyping = false;
-
-        // Check if input is empty after user stops typing
-        if (state.hasBeenFocused && input.value.trim() === '') {
-          showError(input);
-        }
       }, 1000); // 1 second after stopping typing
     });
 
@@ -407,9 +528,30 @@ export function initFormValidation() {
 
       state.isTyping = false;
 
-      // If input has been focused and is empty, show error
-      if (state.hasBeenFocused && input.value.trim() === '') {
-        showError(input);
+      // If input has been focused, validate on blur
+      if (state.hasBeenFocused) {
+        // Check if empty
+        if (input.value.trim() === '') {
+          const message =
+            lang === 'ru' ? 'Обязательное поле' : 'This field is required';
+          showError(input, message);
+          return;
+        }
+
+        // Check length validation
+        if (input.id === 'Name' && input.value.length > 300) {
+          const message =
+            lang === 'ru'
+              ? 'Максимальная длина — 300 символов.'
+              : 'Maximum length is 300 characters';
+          showError(input, message);
+        } else if (input.id === 'Message' && input.value.length > 1500) {
+          const message =
+            lang === 'ru'
+              ? 'Максимальная длина — 1500 символов.'
+              : 'Maximum length is 1500 characters';
+          showError(input, message);
+        }
       }
     });
   });
@@ -425,7 +567,7 @@ export function validateSticker(stickerInput, stickersContainer) {
 }
 
 function showStickerError(stickersContainer) {
-  // Add error class to stickers container
+  // Add error class to stickers container with animation
   stickersContainer.classList.add('stickers-invalid');
 
   /*  // Find or create error message element
@@ -439,7 +581,7 @@ function showStickerError(stickersContainer) {
 }
 
 export function clearStickerError(stickersContainer) {
-  // Remove error class
+  // Remove error class with transition
   stickersContainer.classList.remove('stickers-invalid');
 
   /* // Remove error message

@@ -15,7 +15,7 @@ import {
   clearStickerError,
 } from './util.js';
 
-const switchLanguageButton = document.getElementById('language-selector');
+const switchLanguageButton = document.querySelector('.language-button');
 const html = document.querySelector('html');
 const form = document.querySelector('.form-container');
 const stickers = document.querySelectorAll('.sticker-button');
@@ -41,7 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
   updateDesign(mqlMobile.matches);
 
   initMessages(messageContainer, db);
-  initFormValidation();
+  initFormValidation(html.lang);
   booksAnimation();
 });
 
@@ -54,6 +54,7 @@ switchLanguageButton.addEventListener('click', () => {
   updateDesign(mqlMobile.matches).then((result) => {
     checkLoaded(result.timestamp, loader, true);
   });
+
 
   booksAnimation();
 });
@@ -90,8 +91,8 @@ form.addEventListener('submit', (event) => {
   const scrollPosition = window.scrollY;
 
   // Validate all fields and show errors
-  const isNameValid = validateField(name);
-  const isMessageValid = validateField(message);
+  const isNameValid = validateField(name, html.lang);
+  const isMessageValid = validateField(message, html.lang);
   const isStickerValid = validateSticker(sticker, stickersContainer);
 
   if (!isNameValid || !isMessageValid || !isStickerValid) {

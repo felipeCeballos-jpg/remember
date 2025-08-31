@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,700&display=swap');
 
+@font-face {
+  font-family: 'candara';
+  src: url('./assets/font/candara.ttf');
+}
+
+@font-face {
+  font-family: 'centuryschoolbook';
+  src: url('./assets/font/centuryschoolbook.ttf');
+}
+
 * {
   box-sizing: border-box;
   padding: 0px;
@@ -51,7 +61,7 @@ main {
   align-items: center;
   background-image: url('./assets/bg.webp');
   background-position: center top;
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   /* padding: 0px 50px; */
 }
@@ -84,17 +94,19 @@ main {
   margin-top: 2rem;
 }
 
+.language-button {
+  border: none;
+  background-color: transparent;
+  margin-right: 7rem;
+  margin-bottom: 1.25rem;
+}
+
 .language-selector {
   position: relative;
   width: 6.813rem;
   align-self: flex-end;
   /* margin-right: 1rem; */
-  margin-right: 7rem;
-  margin-bottom: 1.25rem;
-  cursor: pointer !important;
   transition: none;
-  pointer-events: auto !important;
-  z-index: 2;
 }
 
 .title-description {
@@ -167,6 +179,7 @@ main {
 }
 
 h2 {
+  font-family: centuryschoolbook, sans-serif;
   font-size: 4.125rem;
   color: #c73e3e;
   margin-left: 9.955rem;
@@ -347,6 +360,7 @@ label {
 }
 
 .text-input {
+  font-family: 'candara', sans-serif;
   appearance: none;
   background: transparent;
   border: 2px solid #000000;
@@ -369,11 +383,29 @@ label {
 
 .input-invalid,
 .message-invalid {
-  border: 2px solid #c73e3e;
+  border: 2px solid #c73e3e !important;
 }
 
 .stickers-invalid {
-  border-bottom: 2px solid #c73e3e !important;
+  border: 2px solid #c73e3e !important;
+}
+
+@keyframes fadeInError {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOutError {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
 .invalid-stickers {
@@ -389,6 +421,13 @@ label {
   color: #c73e3e;
   font-size: 1rem;
   margin-top: 0.5rem;
+  opacity: 0;
+  animation: fadeInError 0.25s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.invalid-input.removing,
+.invalid-textarea.removing {
+  animation: fadeOutError 0.15s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 textarea {
@@ -416,7 +455,7 @@ textarea {
   width: 100%;
   display: flex;
   gap: 1rem;
-  border-bottom: 2px solid transparent;
+  border: 2px solid transparent;
 }
 
 .submit-button-img {

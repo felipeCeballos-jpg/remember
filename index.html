@@ -8,7 +8,6 @@
       content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
     <title>Remember</title>
-    <link rel="stylesheet" href="https://use.typekit.net/ksu1zed.css" />
     <link rel="stylesheet" href="./index.css" />
     <link rel="stylesheet" href="mobile.css" media="(max-width: 800px)" />
     <link
@@ -24,12 +23,14 @@
     <main>
       <section class="main-section remember-section">
         <div class="language-container">
-          <img
-            id="language-selector"
-            class="language-selector changeable-img klubok"
-            alt="klubok"
-            src="assets/klubok_en.png"
-          />
+          <button class="language-button">
+            <img
+              id="language-selector"
+              class="language-selector changeable-img klubok"
+              alt="klubok"
+              src="assets/klubok_en.png"
+            />
+          </button>
         </div>
         <div class="title-section">
           <img
@@ -72,13 +73,14 @@
         <picture>
           <source
             media="(width <= 800px)"
-            srcset="assets/cut-line-mobile.webp">
+            srcset="assets/cut-line-mobile.webp"
+          />
           <img
             class="line-img"
             alt="just line to divide the form and the messages"
             src="assets/cut-line.webp"
           />
-      </picture>
+        </picture>
         <form class="form-container">
           <div class="field">
             <label for="Name" class="changeable-txt">Name:</label>
@@ -89,7 +91,6 @@
                 type="text"
                 class="text-input"
                 autocomplete="off"
-                maxlength="300"
               />
             </div>
           </div>
@@ -101,8 +102,6 @@
                 name="Message"
                 class="text-input"
                 autocomplete="off"
-                placeholder="Hello..."
-                maxlength="1500"
               ></textarea>
             </div>
           </div>
