@@ -5,6 +5,15 @@
     z-index: 2;
   }
 
+  .language-button {
+    margin-right: 0rem;
+    right: 40px;
+  }
+
+  .language-selector {
+    width: 79px;
+  }
+
   .remember-section {
     width: 100%;
     max-width: 100%;

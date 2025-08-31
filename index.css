@@ -95,6 +95,8 @@ main {
 }
 
 .language-button {
+  position: relative;
+  align-self: flex-end;
   border: none;
   background-color: transparent;
   margin-right: 7rem;
@@ -102,9 +104,7 @@ main {
 }
 
 .language-selector {
-  position: relative;
-  width: 6.813rem;
-  align-self: flex-end;
+  width: 6.813rem;  
   /* margin-right: 1rem; */
   transition: none;
 }
