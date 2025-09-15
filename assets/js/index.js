@@ -13,6 +13,7 @@ import {
   validateField,
   validateSticker,
   clearStickerError,
+  sideElementsAnimation,
 } from './util.js';
 
 const switchLanguageButton = document.querySelector('.language-button');
@@ -42,6 +43,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
   initMessages(messageContainer, db);
   initFormValidation(html.lang);
+  sideElementsAnimation();
   booksAnimation();
 });
 
@@ -55,6 +57,9 @@ switchLanguageButton.addEventListener('click', () => {
     checkLoaded(result.timestamp, loader, true);
   });
 
+  initFormValidation(html.lang);
+
+  sideElementsAnimation();
   booksAnimation();
 });
 
@@ -66,6 +71,7 @@ mqlMobile.addEventListener('change', (event) => {
     checkLoaded(result.timestamp, loader);
   });
 
+  sideElementsAnimation();
   booksAnimation();
 });
 
@@ -77,6 +83,7 @@ mqlDefault.addEventListener('change', (event) => {
     checkLoaded(result.timestamp, loader);
   });
 
+  sideElementsAnimation();
   booksAnimation();
 });
 

@@ -247,11 +247,11 @@ function updateText(language) {
       showError(name, messageTxt);
     }
 
-    if (name.value.length > 300) {
+    if (name.value.length > 150) {
       const messageTxt =
         language === 'ru'
-          ? 'Максимальная длина — 300 символов.'
-          : 'Maximum length is 300 characters';
+          ? 'Максимальная длина — 150 символов.'
+          : 'Maximum length is 150 characters';
       showError(name, messageTxt);
     }
   }
@@ -263,11 +263,11 @@ function updateText(language) {
       showError(message, messageTxt);
     }
 
-    if (message.value.length > 1500) {
+    if (message.value.length > 600) {
       const messageTxt =
         language === 'ru'
-          ? 'Максимальная длина — 1500 символов.'
-          : 'Maximum length is 1500 characters';
+          ? 'Максимальная длина — 600 символов.'
+          : 'Maximum length is 600 characters';
       showError(message, messageTxt);
     }
   }
@@ -294,6 +294,35 @@ export function booksAnimation() {
   );
 
   booksObserver.observe(footer);
+}
+
+export function sideElementsAnimation() {
+  resetAnimation([
+    { selector: '.scroll-action-left', animationClass: 'scroll-active-left' },
+  ]);
+
+  const elementsToAnimate = [{ selector: '.scroll-action-left', side: 'left' }];
+
+  elementsToAnimate.forEach(({ selector, side }) => {
+    document.querySelectorAll(selector).forEach((item) => {
+      const observer = new IntersectionObserver(
+        (entries, observer) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add(`scroll-active-${side}`);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          rootMargin: '0px',
+          threshold: 0,
+        }
+      );
+
+      observer.observe(item);
+    });
+  });
 }
 
 export function getDateFormat() {
@@ -375,21 +404,21 @@ export function validateField(input, lang) {
   }
 
   // Check length validation based on input ID
-  if (input.id === 'Name' && value.length > 300) {
+  if (input.id === 'Name' && value.length > 90) {
     const message =
       lang === 'ru'
-        ? 'Максимальная длина — 300 символов.'
-        : 'Maximum length is 300 characters';
+        ? 'Максимальная длина — 90 символов.'
+        : 'Maximum length is 90 characters';
 
     showError(input, message);
     return false;
   }
 
-  if (input.id === 'Message' && value.length > 1500) {
+  if (input.id === 'Message' && value.length > 600) {
     const message =
       lang === 'ru'
-        ? 'Максимальная длина — 1500 символов.'
-        : 'Maximum length is 1500 characters';
+        ? 'Максимальная длина — 600 символов.'
+        : 'Maximum length is 600 characters';
 
     showError(input, message);
     return false;
@@ -474,18 +503,18 @@ export function initFormValidation(lang) {
 
       // Real-time length validation while typing
       const value = input.value;
-      if (input.id === 'Name' && value.length > 300) {
+      if (input.id === 'Name' && value.length > 90) {
         const message =
           lang === 'ru'
-            ? 'Максимальная длина — 300 символов.'
-            : 'Maximum length is 300 characters';
+            ? 'Максимальная длина — 90 символов.'
+            : 'Maximum length is 90 characters';
 
         showError(input, message);
-      } else if (input.id === 'Message' && value.length > 1500) {
+      } else if (input.id === 'Message' && value.length > 600) {
         const message =
           lang === 'ru'
-            ? 'Максимальная длина — 1500 символов.'
-            : 'Maximum length is 1500 characters';
+            ? 'Максимальная длина — 600 символов.'
+            : 'Maximum length is 600 characters';
 
         showError(input, message);
       } else {
@@ -539,17 +568,17 @@ export function initFormValidation(lang) {
         }
 
         // Check length validation
-        if (input.id === 'Name' && input.value.length > 300) {
+        if (input.id === 'Name' && input.value.length > 90) {
           const message =
             lang === 'ru'
-              ? 'Максимальная длина — 300 символов.'
-              : 'Maximum length is 300 characters';
+              ? 'Максимальная длина — 90 символов.'
+              : 'Maximum length is 90 characters';
           showError(input, message);
-        } else if (input.id === 'Message' && input.value.length > 1500) {
+        } else if (input.id === 'Message' && input.value.length > 600) {
           const message =
             lang === 'ru'
-              ? 'Максимальная длина — 1500 символов.'
-              : 'Maximum length is 1500 characters';
+              ? 'Максимальная длина — 600 символов.'
+              : 'Maximum length is 600 characters';
           showError(input, message);
         }
       }
