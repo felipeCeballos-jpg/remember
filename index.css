@@ -151,7 +151,7 @@ body .loader img {
   font-style: normal;
   text-align: end;
   right: 4.5rem;
-  margin-right: 2.981rem;
+  /* margin-right: 2.981rem; */
 }
 
 .title-description:lang(ru) {
