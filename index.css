@@ -12,8 +12,10 @@
 }
 
 @font-face {
-  font-family: 'centuryschoolbook';
-  src: url('./assets/font/centuryschoolbook.ttf');
+  font-family: 'SCHLBKB';
+  src: url('./assets/font/SCHLBKB.TTF');
+  font-weight: 400;
+  font-style: normal;
 }
 
 * {
@@ -203,11 +205,12 @@ body .loader img {
 }
 
 h2 {
-  font-family: centuryschoolbook, sans-serif;
+  font-family: 'SCHLBKB', sans-serif;
   font-size: 4.125rem;
   color: #c73e3e;
-  font-weight: bold;
+  font-weight: 400;
   margin-left: 9.955rem;
+  line-height: 1;
 }
 
 button {
@@ -387,10 +390,11 @@ label {
 }
 
 .text-input {
-  font-family: 'candara', sans-serif;
+  font-family: 'candaralight', sans-serif;
+  font-weight: 600;
   appearance: none;
   background: transparent;
-  border: 2px solid #000000;
+  border: 1.7px solid #000000;
   color: #000000;
   padding: 10px 12px;
   border-radius: 2px;
@@ -410,11 +414,11 @@ label {
 
 .input-invalid,
 .message-invalid {
-  border: 2px solid #c73e3e !important;
+  border: 1.7px solid #c73e3e !important;
 }
 
 .stickers-invalid {
-  border: 2px solid #c73e3e !important;
+  border: 1.7px solid #c73e3e !important;
 }
 
 @keyframes fadeInError {

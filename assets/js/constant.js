@@ -114,13 +114,14 @@ export const footerEnTranslateImgs = [
 ];
 
 export const originalRuImages = [
-  './assets/klubok_ru.png',
+  './assets/klubok_en.png',
+  
   './assets/remember-ru1.webp',
   './assets/print-button-ru.webp',
 ];
 
 export const originalEnImages = [
-  './assets/klubok_en.png',
+  './assets/klubok_ru.png',
   './assets/remember-en.webp',
   './assets/print-button-en.webp',
 ];
