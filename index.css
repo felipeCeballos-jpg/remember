@@ -150,6 +150,7 @@ body .loader img {
   font-weight: 700;
   font-style: normal;
   text-align: end;
+  color: #322e2e;
   right: 3rem;
   /* margin-right: 2.981rem; */
 }
@@ -160,7 +161,7 @@ body .loader img {
 }
 
 .title-description:lang(en) {
-  font-size: 1.65rem;
+  font-size: 1.3rem;
   bottom: -1.9rem;
 }
 
